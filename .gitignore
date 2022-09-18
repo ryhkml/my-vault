@@ -1,0 +1,10 @@
+data/
+tmp/
+
+.vscode/
+
+*.log
+.env
+
+note.txt
+vault-*.json

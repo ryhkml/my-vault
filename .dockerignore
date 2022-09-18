@@ -1,0 +1,12 @@
+data/
+tmp/
+
+.git
+.gitignore
+
+*.log
+
+Dockerfile*
+docker-compose*
+
+vault-*.json

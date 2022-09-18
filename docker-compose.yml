@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  api:
+    hostname: vault_server
+    command: server
+    image: vault
+    user: vault
+    ports:
+      - "8200:8200"
+    restart: always
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./config.hcl:/vault/config/config.hcl
+    networks:
+      - net
+    environment:
+      - TZ=UTC
+      - SKIP_SETCAP=false
+      - VAULT_LOG_LEVEL=err
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+        reservations:
+          cpus: "0.5"
+          memory: 128M
+
+networks:
+  net: {}
